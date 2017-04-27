@@ -8,7 +8,10 @@ First of all, you need to have NodeJs installed on your machine in order to inst
 
 * https://nodejs.org/en/
 
-The Angular CLI will make your life much simpler if you want to develop Angular applications. It has a variety of useful commands built right into it. You can find the official documentation of the Angular CLI right here: https://cli.angular.io/
+The Angular CLI will make your life much simpler if you want to develop Angular applications. 
+It has a variety of useful commands built right into it. You can find the official documentation of the Angular CLI right here: 
+
+* https://cli.angular.io/
 
 To install the Angular CLI:
 * ``` npm install -g @angular/cli  ```

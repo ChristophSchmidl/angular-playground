@@ -25,6 +25,37 @@ Generating and serving an Angular project via a development server Create and ru
 	ng new my-project
 	cd new-project
 	ng serve
+If you're on an Ubuntu machine and you get an error like this when trying to create a project through ``` ng new my-poject```:
+
+```
+vagrant@homestead:~$ ng new my-project
+/usr/lib/node_modules/@angular/cli/models/config/config.js:16
+    constructor(_configPath, schema, configJson, fallbacks = []) {
+                                                           ^
+
+SyntaxError: Unexpected token =
+    at exports.runInThisContext (vm.js:53:16)
+    at Module._compile (module.js:387:25)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+    at Function.Module._load (module.js:314:12)
+    at Module.require (module.js:367:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/usr/lib/node_modules/@angular/cli/models/config.js:3:18)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+```
+then it's very likely that your node version is too old. Just update it like this (on a Ubuntu machine):
+
+```
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+
+sudo ln -sf /usr/local/n/versions/node/<VERSION>/bin/node /usr/bin/node 
+```
+
+
 Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
 Additional commands of the Angular CLI can be found on its wiki page:

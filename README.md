@@ -11,7 +11,7 @@ To install the Angular CLI:
 
 Generating and serving an Angular project via a development server Create and run a new project:
 * ```
-ng new my-project
-cd new-project
-ng serve
+	ng new my-project
+	cd new-project
+	ng serve
 ```

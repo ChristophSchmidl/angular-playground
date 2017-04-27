@@ -26,3 +26,7 @@ Generating and serving an Angular project via a development server Create and ru
 	cd new-project
 	ng serve
 Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+
+Additional commands of the Angular CLI can be found on its wiki page:
+
+* https://github.com/angular/angular-cli/wiki

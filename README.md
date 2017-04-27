@@ -14,4 +14,5 @@ Generating and serving an Angular project via a development server Create and ru
 	ng new my-project
 	cd new-project
 	ng serve
-```
+
+Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.

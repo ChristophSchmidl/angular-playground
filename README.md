@@ -50,10 +50,47 @@ then it's very likely that your node version is too old. Just update it like thi
 ```
 sudo npm cache clean -f
 sudo npm install -g n
-sudo n stable
-
-sudo ln -sf /usr/local/n/versions/node/<VERSION>/bin/node /usr/bin/node 
+sudo n stable 
 ```
+
+Depending in your current node location, you have to alter the following step to your needs:
+
+```
+# Get node location
+which node
+# /usr/local/bin/node
+sudo ln -sf /usr/local/n/versions/node/<VERSION>/bin/node /usr/local/bin/node
+```
+
+There is some particular problem which occurs when you are using **Vagrant with an Ubuntu box on top of Windows**:
+
+```
+npm ERR! Linux 3.4.0+
+npm ERR! argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "acorn"
+npm ERR! node v5.10.1
+npm ERR! npm  v3.8.3
+npm ERR! path ../acorn/bin/acorn
+npm ERR! code EPERM
+npm ERR! errno -1
+npm ERR! syscall symlink
+
+npm ERR! Error: EPERM: operation not permitted, symlink '../acorn/bin/acorn' -> '/mnt/r/path/node_modules/.bin/acorn'
+npm ERR!     at Error (native)
+npm ERR!  { [Error: EPERM: operation not permitted, symlink '../acorn/bin/acorn' -> '/mnt/r/path/node_modules/.bin/acorn']
+npm ERR!   errno: -1,
+npm ERR!   code: 'EPERM',
+npm ERR!   syscall: 'symlink',
+npm ERR!   path: '../acorn/bin/acorn',
+npm ERR!   dest: '/mnt/r/path/node_modules/.bin/acorn',
+npm ERR!   parent: 'myproject' }
+npm ERR!
+npm ERR! Please try running this command again as root/Administrator.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /mnt/r/path/npm-debug.log
+```
+
+It complains about that it's not able to create symlinks. This happens when your current project location is also part of the shared folder between host and guest. I solved this problem by starting the vagrant box with administrator rights. If you are using Cygwin in Windows or just the simple command prompt to start Vagrant then it is sufficient to start it with "Run as Administrator" and then using ``` vagrant up```.
 
 
 Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.

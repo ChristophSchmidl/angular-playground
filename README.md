@@ -25,6 +25,9 @@ Generating and serving an Angular project via a development server Create and ru
 	ng new my-project
 	cd new-project
 	ng serve
+If you are running ``` ng serve ``` inside Vagrant or any other virtual environment then it most likely won't work to access the app from outside the VM. If you want to make it accessible from outside then you have to use the host flag. Depending on the VMs IP address or host name, alter the following command to your needs:
+* ```
+    ng serve --host homestead.dev
 If you're on an Ubuntu machine and you get an error like this when trying to create a project through ``` ng new my-poject```:
 
 ```

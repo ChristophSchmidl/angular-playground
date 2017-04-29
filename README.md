@@ -96,7 +96,7 @@ npm ERR!     /mnt/r/path/npm-debug.log
 It complains about that it's not able to create symlinks. This happens when your current project location is also part of the shared folder between host and guest. I solved this problem by starting the vagrant box with administrator rights. If you are using Cygwin in Windows or just the simple command prompt to start Vagrant then it is sufficient to start it with "Run as Administrator" and then using ``` vagrant up```.
 
 
-Navigate to http://<hostname>:4200/. The app will automatically reload if you change any of the source files.
+Navigate to http://hostname:4200/. The app will automatically reload if you change any of the source files.
 
 Additional commands of the Angular CLI can be found on its wiki page:
 

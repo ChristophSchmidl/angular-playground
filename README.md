@@ -101,3 +101,8 @@ Navigate to http://hostname:4200/. The app will automatically reload if you chan
 Additional commands of the Angular CLI can be found on its wiki page:
 
 * https://github.com/angular/angular-cli/wiki
+
+
+## Vagrant/Homestead
+
+If you want to develop Angular Applications by using some sort of VM like Vagrant or Homestead (from the Laravel guy) then you have to deal with some issues. First of all you have to run Vagrant as administrator/root to overcome the issue with symlinks. Then you have to specify the host when you want to use the NG Live Development Server by running ``` ng serve --host hostname ```.

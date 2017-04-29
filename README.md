@@ -105,4 +105,17 @@ Additional commands of the Angular CLI can be found on its wiki page:
 
 ## Vagrant/Homestead
 
-If you want to develop Angular Applications by using some sort of VM like Vagrant or Homestead (from the Laravel guy) then you have to deal with some issues. First of all you have to run Vagrant as administrator/root to overcome the issue with symlinks. Then you have to specify the host when you want to use the NG Live Development Server by running ``` ng serve --host hostname ```.
+If you want to develop Angular Applications by using some sort of VM like Vagrant or Homestead (from the Laravel guy) then you have to deal with some issues. First of all you have to run Vagrant as administrator/root to overcome the issue with symlinks. Then you have to specify the host when you want to use the NG Live Development Server by running ``` ng serve --host hostname ```. Another problem is a bug in the change detection progress when using Vagrant and a shared folder. If you're using an IDE on your machine to edit the source code located in a shared folder which is executed on the VM, then the NG Live Development Server does not notice changes happening in that folder. This makes the whole purpose of the Live Development Server obsolete. Possibly fix:
+    * https://github.com/angular/angular-cli/issues/2356 (seems promising but I did not check it)
+    * Installing the vagrant-fsnotify plugin
+
+I used the vagrant-fsnotify plugin (https://github.com/adrienkohlbecker/vagrant-fsnotify) and it just worked the way it was advertised. Just go to their Github page and follow the insallation process. It is straight forward. If you are using Homestead then you do not have to alter the Vagrantfile, instead just add an option to your folders mapping. In my case it looks like this:
+* ```
+    folders:
+        - map: ./Code
+          to: /home/vagrant/Code
+          options: 
+            fsnotify: true
+
+
+
